@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #34418f;
+  --color-brand-dark: #2a3575;
+}
+
+@layer base {
+  body {
+    @apply bg-zinc-100 text-zinc-900 antialiased;
+  }
+
+  #root {
+    @apply min-h-screen;
+  }
+}
+
+/* Shared building blocks so every page uses the same look */
+@layer components {
+  /* full-width light section that sits on the blue page background */
+  .band {
+    @apply bg-zinc-50 px-4 py-8 shadow-md sm:px-6 lg:px-8;
+  }
+
+  /* blue intro section at the top of a page */
+  .hero {
+    @apply px-4 py-8 sm:px-6 lg:px-8;
+  }
+
+  /* keeps content the same width on every page */
+  .wrap {
+    @apply mx-auto w-full max-w-6xl;
+  }
+
+  .eyebrow {
+    @apply text-[11px] font-semibold uppercase tracking-[0.28em] text-zinc-500;
+  }
+
+  .eyebrow-light {
+    @apply text-[11px] font-semibold uppercase tracking-[0.28em] text-amber-300;
+  }
+
+  .card {
+    @apply rounded-3xl bg-zinc-100 p-5 shadow-lg;
+  }
+
+  .card-yellow {
+    @apply rounded-3xl bg-yellow-400 p-5 shadow-lg;
+  }
+
+  .field {
+    @apply mt-2 w-full rounded-xl border-2 border-zinc-300 bg-white px-4 py-3 text-sm text-zinc-900 outline-none transition placeholder:text-zinc-400 focus:border-zinc-900;
+  }
+
+  .field-label {
+    @apply text-sm font-medium text-zinc-700;
+  }
+
+  .alert-error {
+    @apply rounded-xl border-2 border-red-300 bg-red-50 px-4 py-3 text-sm text-red-700;
+  }
+
+  .alert-success {
+    @apply rounded-xl border-2 border-emerald-300 bg-emerald-50 px-4 py-3 text-sm text-emerald-700;
+  }
+
+  .badge {
+    @apply inline-block rounded-full bg-zinc-50 px-3 shadow py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-zinc-900;
+  }
+}
