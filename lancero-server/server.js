@@ -19,6 +19,8 @@ const { notFound, errorHandler } = require('./middleware/errorMiddleware');
 
 const app = express();
 
+app.set('trust proxy', 1);
+
 // ---------------------------------------------------------------
 // Middleware order matters - each request goes through them top to bottom:
 //   1. helmet           security headers on every response (even errors)
@@ -114,6 +116,10 @@ app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+if (!process.env.VERCEL) {
+    app.listen(PORT, () => {
+        console.log(`Server running on port ${PORT}`);
+    });
+}
+
+module.exports = app;
